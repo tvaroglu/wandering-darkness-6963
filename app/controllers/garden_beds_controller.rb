@@ -1,8 +1,5 @@
 class GardenBedsController < ApplicationController
 
-  def create
-  end
-
   def destroy
     garden_bed = GardenBed.find_by(plant_id: params[:id])
     garden_bed.destroy

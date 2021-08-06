@@ -56,5 +56,6 @@ plant_6 = Plant.create!(
 # Garden Beds
 plot_1.plants << plant_1
 plot_1.plants << plant_2
+plot_1.plants << plant_3
 plot_2.plants << plant_3
 plot_2.plants << plant_4

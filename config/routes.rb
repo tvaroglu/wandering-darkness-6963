@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :gardens, only: [:show]
-  resources :plots, only: [:index, :show]
+  resources :plots, only: [:index]
 
-  resources :garden_beds, only: [:create, :destroy]
+  resources :garden_beds, only: [:destroy]
 
 end
