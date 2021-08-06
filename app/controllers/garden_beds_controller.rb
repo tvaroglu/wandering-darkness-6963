@@ -4,7 +4,8 @@ class GardenBedsController < ApplicationController
   end
 
   def destroy
-    garden_bed = GardenBed.find_by(plot_id: params[:plot_id])
+    require "pry"; binding.pry
+    garden_bed = GardenBed.find_by(plant_id: params[:id])
     garden_bed.destroy
     redirect_to plots_path
   end

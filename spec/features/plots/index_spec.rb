@@ -50,28 +50,33 @@ RSpec.describe 'plots index' do
     expect(page).to have_content('All Plots')
 
     within "#plot-#{@plot_1.id}" do
-      expect(page).to have_content("#{@plot_1.direction}: #{@plot_1.number}")
+      expect(page).to have_content("#{@plot_1.direction}: ##{@plot_1.number}")
       expect(page).to have_content("All Plants Currently Planted:")
     end
     within "#plant-#{@plant_1.id}" do
       expect(page).to have_content(@plant_1.name)
+      expect(page).to have_link("Remove #{@plant_1.name}")
     end
     within "#plant-#{@plant_2.id}" do
       expect(page).to have_content(@plant_2.name)
+      expect(page).to have_link("Remove #{@plant_2.name}")
     end
 
     within "#plot-#{@plot_2.id}" do
-      expect(page).to have_content("#{@plot_2.direction}: #{@plot_2.number}")
+      expect(page).to have_content("#{@plot_2.direction}: ##{@plot_2.number}")
       expect(page).to have_content("All Plants Currently Planted:")
     end
     within "#plant-#{@plant_3.id}" do
       expect(page).to have_content(@plant_3.name)
+      expect(page).to have_link("Remove #{@plant_3.name}")
     end
     within "#plant-#{@plant_4.id}" do
       expect(page).to have_content(@plant_4.name)
+      expect(page).to have_link("Remove #{@plant_4.name}")
     end
 
-    within "#plot-#{@flight_3.id}" do
+    within "#plot-#{@plot_3.id}" do
+      expect(page).to have_content("#{@plot_3.direction}: ##{@plot_3.number}")
       expect(page).to have_content("No Plants Currently Planted")
     end
   end
@@ -85,7 +90,7 @@ RSpec.describe 'plots index' do
     # I'm returned to the plots index page
     # And I no longer see that plant listed under that plot
     # (Note: you should not destroy the plant record entirely)
-  it 'displays a link to remove a plant from a plot' do
+  xit 'displays a link to remove a plant from a plot' do
     visit plots_path
     delete_link = "Remove #{@plant_1.name}"
 

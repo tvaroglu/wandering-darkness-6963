@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :plots, only: [:index, :show]
   resources :gardens, only: [:index, :show]
+
   resources :garden_beds, only: [:create, :destroy]
 
 end

@@ -1,0 +1,11 @@
+<h4><em>All Plants Currently Planted:</em></h4>
+  <% plot.plants.each do |plant|  %>
+    <div id="plant-<%= plant.id %>">
+      <div style="float:left; padding-top:2px; padding-right:10px;">
+        <p><%= plant.name %></p>
+      </div>
+      <br>
+      <%= link_to "Remove #{plant.name}", garden_bed_path(plant.id), method: :delete %>
+      <br><br>
+    </div>
+  <% end %>

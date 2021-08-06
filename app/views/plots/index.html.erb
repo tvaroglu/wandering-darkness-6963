@@ -1,0 +1,13 @@
+<h1>All Plots</h1>
+<br>
+<% @plots.each do |plot| %>
+  <div id="plot-<%= plot.id %>">
+    <h3><%= "#{plot.direction}: ##{plot.number}" %></h3>
+    <% if plot.has_plants? %>
+      <%= render partial: 'plants', locals: { plot: plot} %>
+    <% else %>
+      <h4><em>No Plants Currently Planted</em></h4>
+    <% end %>
+  <br>
+  </div>
+<% end %>
