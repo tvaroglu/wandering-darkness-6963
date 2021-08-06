@@ -34,6 +34,16 @@ RSpec.describe Plot do
       expect(plot_1.has_plants?).to be true
       expect(plot_2.has_plants?).to be false
     end
+
+    it 'can return the name of the garden' do
+      garden = Garden.create!(name: 'Garden of Eaten', organic: true)
+      plot = garden.plots.create!(
+        number: 25,
+        size: 'Large',
+        direction: 'East')
+
+      expect(plot.garden_name).to eq(garden.name)
+    end
   end
 
 end

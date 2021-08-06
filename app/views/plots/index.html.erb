@@ -3,8 +3,9 @@
 <% @plots.each do |plot| %>
   <div id="plot-<%= plot.id %>">
     <h3><%= "#{plot.direction}: ##{plot.number}" %></h3>
+    <h3><%= link_to "Garden: #{plot.garden_name}", garden_path(plot.garden_id) %></h3>
     <% if plot.has_plants? %>
-      <%= render partial: 'plants', locals: { plot: plot} %>
+      <%= render partial: 'plants', locals: { plot: plot } %>
     <% else %>
       <h4><em>No Plants Currently Planted</em></h4>
     <% end %>

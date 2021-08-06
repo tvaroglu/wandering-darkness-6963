@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resources :gardens, only: [:show]
   resources :plots, only: [:index, :show]
-  resources :gardens, only: [:index, :show]
 
   resources :garden_beds, only: [:create, :destroy]
 

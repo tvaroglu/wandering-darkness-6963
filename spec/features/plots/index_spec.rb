@@ -55,10 +55,12 @@ RSpec.describe 'plots index' do
     end
     within "#plant-#{@plant_1.id}" do
       expect(page).to have_content(@plant_1.name)
+      expect(page).to have_content("Days to Harvest: #{@plant_1.days_to_harvest}")
       expect(page).to have_link("Remove #{@plant_1.name}")
     end
     within "#plant-#{@plant_2.id}" do
       expect(page).to have_content(@plant_2.name)
+      expect(page).to have_content("Days to Harvest: #{@plant_2.days_to_harvest}")
       expect(page).to have_link("Remove #{@plant_2.name}")
     end
 
@@ -68,10 +70,12 @@ RSpec.describe 'plots index' do
     end
     within "#plant-#{@plant_3.id}" do
       expect(page).to have_content(@plant_3.name)
+      expect(page).to have_content("Days to Harvest: #{@plant_3.days_to_harvest}")
       expect(page).to have_link("Remove #{@plant_3.name}")
     end
     within "#plant-#{@plant_4.id}" do
       expect(page).to have_content(@plant_4.name)
+      expect(page).to have_content("Days to Harvest: #{@plant_4.days_to_harvest}")
       expect(page).to have_link("Remove #{@plant_4.name}")
     end
 
@@ -102,6 +106,16 @@ RSpec.describe 'plots index' do
     visit plots_path
     expect(page).to_not have_content(@plant_1.name)
     expect(Plant.find(@plant_1.id)).to eq(@plant_1)
+  end
+
+  it 'displays a link to the garden show page' do
+    visit plots_path
+    garden_show_path = "Garden: #{@garden.name}"
+
+    within "#plot-#{@plot_1.id}" do
+      click_on garden_show_path
+      expect(current_path).to eq(garden_path(@garden.id))
+    end
   end
 
 end
