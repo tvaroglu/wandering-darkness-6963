@@ -90,11 +90,11 @@ RSpec.describe 'plots index' do
     # I'm returned to the plots index page
     # And I no longer see that plant listed under that plot
     # (Note: you should not destroy the plant record entirely)
-  xit 'displays a link to remove a plant from a plot' do
+  it 'displays a link to remove a plant from a plot which does not destroy the plant entirely' do
     visit plots_path
     delete_link = "Remove #{@plant_1.name}"
 
-    within "#plot-#{@plant_1.id}" do
+    within "#plant-#{@plant_1.id}" do
       expect(page).to have_content(delete_link)
       click_on delete_link
     end
