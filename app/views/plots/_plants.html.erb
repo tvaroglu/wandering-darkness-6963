@@ -12,7 +12,9 @@
         <p><strong><%= "Days to Harvest: #{plant.days_to_harvest}" %></strong></p>
       </div>
       <br>
-      <%= link_to "Remove #{plant.name}", garden_bed_path(plant.id), method: :delete %>
+      <% if plot != 'all' %>
+        <%= link_to "Remove #{plant.name}", garden_bed_path(plant.id, plot.id), method: :delete %>
+      <% end %>
       <br><br>
       <br><br>
     </div>
